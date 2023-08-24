@@ -38,7 +38,7 @@ public class StudentRegistrationTests {
         $("#subjectsInput").setValue("ec");
         $("#subjectsWrapper").$(byText("Economics")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFile(new File("/Users/springgale/Documents/GitHub/qa_tests_20_3/src/test/java/com/data/sample.JPG"));
+        $("#uploadPicture").uploadFromClasspath("img/sample.JPG");
         $("#currentAddress").setValue("Address 1");
         $("#stateCity-wrapper").$("#state").click();
         $("#state").$(byText("Haryana")).click();
@@ -54,7 +54,7 @@ public class StudentRegistrationTests {
         $(".table-responsive").shouldHave(text("03 March,2000\n"));
         $(".table-responsive").shouldHave(text("Economics"));
         $(".table-responsive").shouldHave(text("Reading"));
-        $(".table-responsive").shouldHave(text("sample.JPG"));
+        $(".table-responsive").shouldHave(text("img/sample.JPG"));
         $(".table-responsive").shouldHave(text("Address 1"));
         $(".table-responsive").shouldHave(text("Haryana Karnal"));
 
