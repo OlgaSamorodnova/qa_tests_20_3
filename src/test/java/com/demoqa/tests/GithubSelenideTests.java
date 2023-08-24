@@ -57,7 +57,7 @@ public class GithubSelenideTests {
         $("#wiki-pages-filter").sendKeys("so");
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         $(byText("SoftAssertions")).click();
-        $("#wiki-body").shouldHave(Condition.text(jUnit5RegisterTestExample));
+        $("#wiki-body").shouldHave(Condition.text(jUnit5ExtendTestExample));
         $("#wiki-body").shouldHave(Condition.text(jUnit5RegisterTestExample));
     }
 }
