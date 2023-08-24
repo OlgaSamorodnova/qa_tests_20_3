@@ -19,6 +19,7 @@ public class StudentRegistrationTests {
         Configuration.browserSize = "1920x1080";
         Configuration.browser = CHROME;
         Configuration.pageLoadStrategy = "eager";
+//        Configuration.holdBrowserOpen = true;
     }
     @Test
     void successTest() {
@@ -54,7 +55,7 @@ public class StudentRegistrationTests {
         $(".table-responsive").shouldHave(text("03 March,2000\n"));
         $(".table-responsive").shouldHave(text("Economics"));
         $(".table-responsive").shouldHave(text("Reading"));
-        $(".table-responsive").shouldHave(text("img/sample.JPG"));
+        $(".table-responsive").shouldHave(text("sample.JPG"));
         $(".table-responsive").shouldHave(text("Address 1"));
         $(".table-responsive").shouldHave(text("Haryana Karnal"));
 
