@@ -21,7 +21,7 @@ public class GithubSelenideTests {
         Configuration.pageLoadStrategy = "eager";
     }
 
-    String JUnit5ExtendTestExample = "@ExtendWith({SoftAssertsExtension.class})\n" +
+    String jUnit5ExtendTestExample = "@ExtendWith({SoftAssertsExtension.class})\n" +
             "class Tests {\n" +
             "  @Test\n" +
             "  void test() {\n" +
@@ -32,7 +32,7 @@ public class GithubSelenideTests {
             "    $(\"#second\").should(visible).click();\n" +
             "  }\n" +
             "}";
-    String JUnit5RegisterTestExample = "class Tests {\n" +
+    String jUnit5RegisterTestExample = "class Tests {\n" +
             "  @RegisterExtension \n" +
             "  static SoftAssertsExtension softAsserts = new SoftAssertsExtension();\n" +
             "\n" +
@@ -57,7 +57,7 @@ public class GithubSelenideTests {
         $("#wiki-pages-filter").sendKeys("so");
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         $(byText("SoftAssertions")).click();
-        $("#wiki-body").shouldHave(Condition.text(JUnit5ExtendTestExample));
-        $("#wiki-body").shouldHave(Condition.text(JUnit5RegisterTestExample));
+        $("#wiki-body").shouldHave(Condition.text(jUnit5RegisterTestExample));
+        $("#wiki-body").shouldHave(Condition.text(jUnit5RegisterTestExample));
     }
 }

@@ -39,5 +39,7 @@ public class SelenideTests2 {
 //        команда $(element).dragAndDrop($(to-element)) работает
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
         $("#column-b").shouldHave(text("A"));
+        $("#column-a").shouldHave(text("B"));
+
     }
 }
