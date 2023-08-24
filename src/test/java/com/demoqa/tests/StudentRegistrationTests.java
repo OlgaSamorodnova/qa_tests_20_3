@@ -16,40 +16,37 @@ public class StudentRegistrationTests {
     static void beforeAll() {
         System.out.println("#### Settings");
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.headless=true;
         Configuration.browserSize = "1920x1080";
         Configuration.browser = CHROME;
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen=true;
     }
     @Test
     void successTest() {
         System.out.println("#### Fill in the form");
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("test@test.com");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1234567890");
         $("#dateOfBirthInput").click();
-        $("#dateOfBirth-wrapper").$(".react-datepicker__month-select").click();
-        $("#dateOfBirth-wrapper").$(byText("March")).click();
-        $("#dateOfBirth-wrapper").$(".react-datepicker__year-select").click();
-        $("#dateOfBirth-wrapper").$(byText("2000")).click();
-        $(".react-datepicker__day--003").click();
+        $(".react-datepicker__month-select").selectOption("March");
+        $(".react-datepicker__year-select").selectOption("2000");
+        $(".react-datepicker__day--003:not(react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("ec");
-        $(byText("Economics")).click();
-        $(byText("Reading")).click();
+        $("#subjectsWrapper").$(byText("Economics")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFile(new File("/Users/springgale/Documents/GitHub/qa_tests_20_3/src/test/java/com/data/sample.JPG"));
         $("#currentAddress").setValue("Address 1");
-        $("#state").click();
-        $("#react-select-3-option-2").click();
-        $("#city").click();
-        $("#react-select-4-option-0").click();
+        $("#stateCity-wrapper").$("#state").click();
+        $("#state").$(byText("Haryana")).click();
+        $("#stateCity-wrapper").$("#city").click();
+        $("#city").$(byText("Karnal")).click();
         $("#submit").click();
 
 
-        System.out.println("#### Check the form submission");
         $(".table-responsive").shouldHave(text("Ivan Ivanov"));
         $(".table-responsive").shouldHave(text("test@test.com"));
         $(".table-responsive").shouldHave(text("Male"));
