@@ -12,8 +12,8 @@ public class TableResultsComponent {
             table = $(".table-responsive"),
             tabletitle = $(".modal-header");
 
-    public void verifyTitle() {
-        tabletitle.shouldHave(text("Thanks for submitting the form"));
+    public void verifyTitle(String value) {
+        tabletitle.shouldHave(text(value));
     }
 
     public void verifyResults(String key, String value) {

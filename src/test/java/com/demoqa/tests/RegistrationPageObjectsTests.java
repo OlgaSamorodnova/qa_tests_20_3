@@ -9,6 +9,7 @@ public class RegistrationPageObjectsTests extends TestBase {
     @Test
     void successTest() {
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Ivan")
                 .setLastName("Ivanov")
                 .setGender("Male")
@@ -25,7 +26,7 @@ public class RegistrationPageObjectsTests extends TestBase {
                 .submitForm()
 // Проверка результатов
 
-                .verifyTitle()
+                .verifyTitle("Thanks for submitting the form")
                 .verifyResults("Student Name", "Ivan Ivanov")
                 .verifyResults("Student Email", "test@test.com")
                 .verifyResults("Gender", "Male")
