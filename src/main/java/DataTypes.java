@@ -1,6 +1,4 @@
-package com.demoqa.tests;
-
-public class DataTypesTests {
+public class DataTypes {
     public static void main(String[] args) {
         System.out.println("Сумма 15 и 12: " + intSum(15,12));
         System.out.println("Сумма - переполнение типа: " + intSum(2000000000,568182740));
