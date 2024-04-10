@@ -16,7 +16,6 @@ public class RegistrationPageObjectsTests extends TestBase {
                 .setEmail("test@test.com")
                 .setNumber("1234567890")
                 .setBirthDay("03", "March", "2000")
-                .setSubjectLetters("ec")
                 .setSubject("Economics")
                 .setHobby("Reading")
                 .setPicture("img/sample.JPG")

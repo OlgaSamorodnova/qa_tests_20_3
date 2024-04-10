@@ -77,15 +77,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubjectLetters(String value) {
-        subjectsInput.setValue(value);
-
-        return this;
-    }
-
     public RegistrationPage setSubject(String value) {
-        subjectsWrapper.$(byText(value)).click();
-
+        subjectsInput.setValue(value).pressEnter();
         return this;
     }
 

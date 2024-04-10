@@ -9,13 +9,14 @@ public class DataTypes {
         System.out.println("Стоимость взрослого билета в выходной день: " + checkPrice(32,true) + " рублей");
         System.out.println("Стоимость взрослого билета в будний день: " + checkPrice(14,false) + " рублей");
         System.out.println("Стоимость детского билета в выходной день: " + checkPrice(13,true) + " рублей");
-        System.out.println("Стоимость детского билета в будний день: " + checkPrice(3,false) + " рублей");
+        System.out.println("Стоимость билета для малыша в выходной день: " + checkPrice(2,true) + " рублей");
         System.out.println("Стоимость билета для малыша в выходной день: " + checkPrice(2,true) + " рублей");
         System.out.println("Стоимость билета для малыша в будний день: " + checkPrice(0,true) + " рублей");
-        System.out.println("Направо пойдешь - " + StonePrediction("направо"));
-        System.out.println("Налево пойдешь - " + StonePrediction("налево"));
-        System.out.println("Прямо пойдешь - " + StonePrediction("прямо"));
-        System.out.println("Назад пойдешь - " + StonePrediction("назад"));
+        System.out.println("Направо пойдешь - " + stonePrediction("направо"));
+        System.out.println("Налево пойдешь - " + stonePrediction("налево"));
+        System.out.println("Прямо пойдешь - " + stonePrediction("прямо"));
+        System.out.println("Назад пойдешь - " + stonePrediction("назад"));
+
 
     }
     public static int intSum(int a, int b) {
@@ -27,9 +28,7 @@ public class DataTypes {
     public static float floatMult (float a, float b) {
         return (a * b);
     }
-    public static int intRestDiv (int a, int b) {
-        return a % b;
-    }
+    public static int intRestDiv (int a, int b) {return (a % b);}
 
     public static double doubleDiv (int a, double b) {
         return a / b;
@@ -56,7 +55,7 @@ public class DataTypes {
 //    «Направо пойдёшь – коня потеряешь, себя спасёшь;
 //    налево пойдёшь – себя потеряешь, коня спасёшь;
 //    прямо пойдёшь – и себя, и коня потеряешь».
-public static String StonePrediction (String direction) {
+public static String stonePrediction (String direction) {
         String prediction = null;
         switch (direction) {
             case "направо" :
