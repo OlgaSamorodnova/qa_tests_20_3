@@ -40,7 +40,7 @@ public class PolkaswapWebTest {
             "French,Jetons"
     }
     )
-    @ParameterizedTest(name = "При поиске по слову {0} выдает результат с текстом {1}")
+    @ParameterizedTest(name = "При установленном языке {0} текст заголовка - {1}")
     void CheckTranslationOfHeader(String language, String expectedText) {
         $(".el-dropdown-selfdefine").click();
         $(byClassName("header-menu__item")).sibling(1).click();
