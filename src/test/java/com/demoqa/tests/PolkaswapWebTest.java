@@ -21,11 +21,12 @@ public class PolkaswapWebTest {
     @ValueSource(strings =  {
             "xor", "val", "pswap"
     })
-    @ParameterizedTest(name = "При переключении ползунка 'Show only synthetic tokens' в результатах не отображаются токены Сора")
-    void notEmptySearchResults(String notSyntheticTokens) {
+    @ParameterizedTest(name = "При переключении ползунка 'Show only synthetic tokens' в результатах не отображается токен {0}")
+    void noSyntheticsInSearchResults(String notSyntheticTokens) {
         $(".el-switch__core").click();
         $(".el-table__body .el-table__row")
                 .shouldNotHave(text(notSyntheticTokens));
+        $(".el-switch__core").click();
     }
 
     @CsvFileSource(resources = "/test_data/SearchResultsShouldContainExpectedTokenName.csv")
@@ -40,7 +41,7 @@ public class PolkaswapWebTest {
             "French,Jetons"
     }
     )
-    @ParameterizedTest(name = "При установленном языке {0} текст заголовка - {1}")
+    @ParameterizedTest(name = "При установленном языке {0} текст заголовка - {1} ")
     void CheckTranslationOfHeader(String language, String expectedText) {
         $(".el-dropdown-selfdefine").click();
         $(byClassName("header-menu__item")).sibling(1).click();
