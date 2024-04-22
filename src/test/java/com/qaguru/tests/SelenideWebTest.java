@@ -1,16 +1,13 @@
-package com.demoqa.tests;
+package com.qaguru.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.data.Language;
-import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Browsers.CHROME;
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;

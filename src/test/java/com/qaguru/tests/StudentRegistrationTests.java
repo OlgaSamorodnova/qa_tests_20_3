@@ -1,10 +1,8 @@
-package com.demoqa.tests;
+package com.qaguru.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.Condition.text;

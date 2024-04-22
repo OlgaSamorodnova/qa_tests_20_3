@@ -1,13 +1,11 @@
-package com.demoqa.tests;
+package com.qaguru.tests;
 
-import com.data.Language;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;

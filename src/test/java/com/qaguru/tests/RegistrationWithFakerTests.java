@@ -1,16 +1,23 @@
-package com.demoqa.tests;
+package com.qaguru.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.demoqa.utils.RandomUtils.*;
+import static com.qaguru.utils.RandomUtils.*;
 
-public class RegistrationWithTestDataTests {
+public class RegistrationWithFakerTests {
+
+
+
+
     @BeforeAll
     static void beforeAll() {
         System.out.println("#### Settings");
@@ -22,12 +29,15 @@ public class RegistrationWithTestDataTests {
     }
     @Test
     void successTest() {
-        String firstName = getRandomString(10),
-                lastName = getRandomString(10),
-                userEmail = getRandomEmail(),
-                currentAddress = getRandomAddress(50),
-                userNumber = getRandomPhone(),
-                gender = getRandomGender();
+        Faker faker = new Faker(new Locale("ru"));
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String userEmail = faker.internet().emailAddress();
+        String currentAddress = faker.address().streetAddress();
+        String userNumber = faker.phoneNumber().cellPhone();
+
+        String gender = getRandomGender();
+
 
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
