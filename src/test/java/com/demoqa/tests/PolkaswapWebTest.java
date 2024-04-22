@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -31,7 +30,7 @@ public class PolkaswapWebTest {
 
     @CsvFileSource(resources = "/test_data/SearchResultsShouldContainExpectedTokenName.csv")
     @ParameterizedTest(name = "При поиске по слову {0} выдает результат с текстом {1}")
-    void SearchResultsShouldContainExpectedTokenName(String searchQuery, String expectedToken) {
+    void searchResultsShouldContainExpectedTokenName(String searchQuery, String expectedToken) {
         $(".el-input__inner").setValue(searchQuery);
         $(".el-table__body .el-table__row").shouldHave(text(expectedToken));
     }
@@ -42,7 +41,7 @@ public class PolkaswapWebTest {
     }
     )
     @ParameterizedTest(name = "При установленном языке {0} текст заголовка - {1} ")
-    void CheckTranslationOfHeader(String language, String expectedText) {
+    void checkTranslationOfHeader(String language, String expectedText) {
         $(".el-dropdown-selfdefine").click();
         $(byClassName("header-menu__item")).sibling(1).click();
         $(byClassName("select-language-list")).$(byText(language)).click();
