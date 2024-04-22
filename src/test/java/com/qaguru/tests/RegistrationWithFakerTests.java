@@ -29,12 +29,12 @@ public class RegistrationWithFakerTests {
     }
     @Test
     void successTest() {
-        Faker faker = new Faker(new Locale("ru"));
+        Faker faker = new Faker(new Locale("en"));
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String userEmail = faker.internet().emailAddress();
         String currentAddress = faker.address().streetAddress();
-        String userNumber = faker.phoneNumber().cellPhone();
+        String userNumber = faker.phoneNumber().subscriberNumber(10);
 
         String gender = getRandomGender();
 

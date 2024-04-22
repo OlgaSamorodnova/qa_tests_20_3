@@ -52,8 +52,8 @@ public class RandomUtils {
     }
 
     public static String getRandomPhone() {
-        return String.format("+%s (%s) %s-%s-%s", getRandomInt(1, 9), getRandomInt(111, 999),
-                getRandomInt(111, 999), getRandomInt(11, 99), getRandomInt(11, 99));
+        return String.format("%s%s%s%s", getRandomInt(1, 9), getRandomInt(111, 999),
+                getRandomInt(111, 999), getRandomInt(111, 999));
     }
 
     public static String getFakerPhone() {
