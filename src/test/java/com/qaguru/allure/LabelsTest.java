@@ -18,7 +18,7 @@ public class LabelsTest {
     @Owner("eroshenkoam")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Testing", url = "https://testing.github.com")
-    @DisplayName("Создание Issue для авторизованного пользователя1")
+    @DisplayName("Создание Issue для авторизованного пользователя31")
     public void testStaticLabels() {
     }
 
