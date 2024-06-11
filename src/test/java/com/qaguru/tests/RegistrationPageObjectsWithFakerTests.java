@@ -1,9 +1,11 @@
 package com.qaguru.tests;
 
 import com.qaguru.pages.RegistrationPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.qaguru.utils.RandomUtils.*;
+@Tag("registration")
 
 public class RegistrationPageObjectsWithFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
