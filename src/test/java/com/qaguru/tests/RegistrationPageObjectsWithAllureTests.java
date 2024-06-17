@@ -76,7 +76,7 @@ public class RegistrationPageObjectsWithAllureTests {
                     .setState(state)
                     .setCity(city);
         });
-        step("Отправляем форму",() -> registrationPage .submitForm())
+        step("Отправляем форму",() -> registrationPage .submitForm());
 // Проверка результатов
 
         step("Проверяем результаты",() ->    {
