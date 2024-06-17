@@ -5,7 +5,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.qaguru.pages.RegistrationPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
