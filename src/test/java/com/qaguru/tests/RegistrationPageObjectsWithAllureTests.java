@@ -21,6 +21,7 @@ import static io.qameta.allure.Allure.step;
 
 public class RegistrationPageObjectsWithAllureTests {
     RegistrationPage registrationPage = new RegistrationPage();
+
     @BeforeAll
     static void beforeAll() {
         System.out.println("#### Settings");
@@ -37,6 +38,7 @@ public class RegistrationPageObjectsWithAllureTests {
         ));
         Configuration.browserCapabilities = capabilities;
     }
+
     @Test
     @Feature("Issue")
     @Story("Позитивный тест на отправку формы")
@@ -57,12 +59,13 @@ public class RegistrationPageObjectsWithAllureTests {
         String city = getRandomCity(state);
 
 
-       step("Открываем форму", () -> {
-           registrationPage.openPage()
-           .removeBanners();
-       });
+        step("Открываем форму", () -> {
+            registrationPage.openPage()
+                    .removeBanners();
 
-        step("Заполняем форму",() -> {
+        });
+
+        step("Заполняем форму", () -> {
             registrationPage.setFirstName(firstName)
                     .setLastName(lastName)
                     .setGender(gender)
@@ -76,10 +79,10 @@ public class RegistrationPageObjectsWithAllureTests {
                     .setState(state)
                     .setCity(city);
         });
-        step("Отправляем форму",() -> registrationPage .submitForm());
+        step("Отправляем форму", () -> registrationPage.submitForm());
 // Проверка результатов
 
-        step("Проверяем результаты",() ->    {
+        step("Проверяем результаты", () -> {
             registrationPage.verifyTitle("Thanks for submitting the form")
                     .verifyResults("Student Name", firstName + " " + lastName)
                     .verifyResults("Student Email", userEmail)
