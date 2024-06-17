@@ -17,7 +17,6 @@ import java.util.Map;
 import static com.qaguru.utils.RandomUtils.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("registrationPage")
 
 public class RegistrationPageObjectsWithAllureTests {
     RegistrationPage registrationPage = new RegistrationPage();
@@ -40,6 +39,7 @@ public class RegistrationPageObjectsWithAllureTests {
     }
 
     @Test
+    @Tag("registrationPage")
     @Feature("Issue")
     @Story("Позитивный тест на отправку формы")
     @DisplayName("Проверить, что после отправки формы данные отображаются верно")
