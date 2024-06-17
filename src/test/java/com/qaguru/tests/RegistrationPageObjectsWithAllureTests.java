@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.qaguru.utils.RandomUtils.*;
+import static io.qameta.allure.Allure.step;
 
 @Tag("registration")
 
@@ -56,34 +57,41 @@ public class RegistrationPageObjectsWithAllureTests {
         String city = getRandomCity(state);
 
 
-        registrationPage.openPage()
-                .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setEmail(userEmail)
-                .setNumber(userNumber)
-                .setBirthDay(day, month, year)
-                .setSubject(subject)
-                .setHobby(hobbie)
-                .setPicture("img/sample.JPG")
-                .setCurrentAddr(currentAddress)
-                .setState(state)
-                .setCity(city)
-                .submitForm()
+       step("Открываем форму", () -> {
+           registrationPage.openPage()
+           .removeBanners();
+       });
+
+        step("Заполняем форму",() -> {
+            registrationPage.setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setGender(gender)
+                    .setEmail(userEmail)
+                    .setNumber(userNumber)
+                    .setBirthDay(day, month, year)
+                    .setSubject(subject)
+                    .setHobby(hobbie)
+                    .setPicture("img/sample.JPG")
+                    .setCurrentAddr(currentAddress)
+                    .setState(state)
+                    .setCity(city);
+        });
+        step("Отправляем форму",() -> registrationPage .submitForm())
 // Проверка результатов
 
-                .verifyTitle("Thanks for submitting the form")
-                .verifyResults("Student Name", firstName + " " + lastName)
-                .verifyResults("Student Email", userEmail)
-                .verifyResults("Gender", gender)
-                .verifyResults("Mobile", userNumber)
-                .verifyResults("Date of Birth", day + " " + month + "," + year)
-                .verifyResults("Subjects", subject)
-                .verifyResults("Hobbies", hobbie)
-                .verifyResults("Picture", "sample.JPG")
-                .verifyResults("Address", currentAddress)
-                .verifyResults("State and City", state + " " + city);
+        step("Проверяем результаты",() ->    {
+            registrationPage.verifyTitle("Thanks for submitting the form")
+                    .verifyResults("Student Name", firstName + " " + lastName)
+                    .verifyResults("Student Email", userEmail)
+                    .verifyResults("Gender", gender)
+                    .verifyResults("Mobile", userNumber)
+                    .verifyResults("Date of Birth", day + " " + month + "," + year)
+                    .verifyResults("Subjects", subject)
+                    .verifyResults("Hobbies", hobbie)
+                    .verifyResults("Picture", "sample.JPG")
+                    .verifyResults("Address", currentAddress)
+                    .verifyResults("State and City", state + " " + city);
+        });
 
 
     }
