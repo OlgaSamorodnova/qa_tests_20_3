@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.qaguru.utils.RandomUtils.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("registration")
+@Tag("registrationPage")
 
 public class RegistrationPageObjectsWithAllureTests {
     RegistrationPage registrationPage = new RegistrationPage();
