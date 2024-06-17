@@ -3,8 +3,11 @@ package com.qaguru.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.qaguru.pages.RegistrationPage;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,7 +16,9 @@ import java.util.Map;
 
 import static com.qaguru.utils.RandomUtils.*;
 
-public class RegistrationPageObjectsWithFakerTests  {
+@Tag("registration")
+
+public class RegistrationPageObjectsWithAllureTests {
     RegistrationPage registrationPage = new RegistrationPage();
     @BeforeAll
     static void beforeAll() {
@@ -32,6 +37,9 @@ public class RegistrationPageObjectsWithFakerTests  {
         Configuration.browserCapabilities = capabilities;
     }
     @Test
+    @Feature("Issue")
+    @Story("Позитивный тест на отправку формы")
+    @DisplayName("Проверить, что после отправки формы данные отображаются верно")
     void successTest() {
         String firstName = getFakerFirstName();
         String lastName = getFakerLastName();
